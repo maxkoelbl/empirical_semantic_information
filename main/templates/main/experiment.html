@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>Bildkontext und Satzergänzung</title>
+{% load static %}
+<link rel="stylesheet" href="{% static 'main/experiment.css' %}">
+</head>
+
+
+<body><div class="wrap">
+
+<div id="s_intro" class="screen on">
+ <h1>Bildkontext und Satzergänzung</h1>
+ <p>In diesem Versuch sehen Sie abwechselnd ein Bild und einen Satz, bei dem
+    das letzte Wort fehlt.</p>
+ <div class="note">
+  <strong>Ablauf pro Durchgang</strong><br>
+  1. Sie sehen ein Bild. Betrachten Sie es in Ruhe und drücken Sie
+     <strong>Enter</strong>, wenn Sie fertig sind.<br>
+  2. Dann erscheint ein Satz mit einer Lücke. Ergänzen Sie
+     <strong>so schnell wie möglich</strong> das Wort, das Ihnen einfällt,
+     und drücken Sie <strong>Enter</strong>.<br>
+  3. Anschließend sehen Sie, was andere Teilnehmer am häufigsten geantwortet
+     haben. Mit <strong>Enter</strong> geht es weiter.
+ </div>
+ <p>Nicht immer passt das Bild zum Satz — das gehört dazu. Ergänzen Sie
+    einfach das Wort, das Ihnen als erstes einfällt.</p>
+ <label>Versuchspersonennummer
+   <input type="number" id="pid" min="1" style="width:6rem"></label>
+ <label>Alter <input type="number" id="age" min="16" max="99" style="width:5rem"></label>
+ <label>Geschlecht
+  <select id="sex"><option value="">—</option><option value="w">weiblich</option>
+   <option value="m">männlich</option><option value="d">divers</option></select></label>
+ <label>Deutsch ist meine Erstsprache
+  <select id="l1"><option value="">—</option><option value="ja">ja</option>
+   <option value="nein">nein</option></select></label>
+ <div class="err" id="e_intro"></div>
+ <button onclick="beginPractice()">Weiter zur Übung</button>
+</div>
+
+<div id="s_pracintro" class="screen">
+ <h1>Übung</h1>
+ <p>Zunächst fünf Übungsdurchgänge, damit Sie den Ablauf kennenlernen.
+    Sie werden nicht ausgewertet.</p>
+ <p class="hint">Enter, um zu beginnen</p>
+</div>
+
+<div id="s_mainintro" class="screen">
+ <h1>Es geht los</h1>
+ <p>Die Übung ist beendet. Nun folgen 40 Durchgänge. Antworten Sie zügig
+    und spontan.</p>
+ <p class="hint">Enter, um zu beginnen</p>
+</div>
+
+<div id="s_ctx" class="screen"><div class="stage">
+ <div id="ctx_body"></div>
+ <div class="hint">Enter, wenn Sie fertig sind</div>
+</div></div>
+
+<div id="s_blank" class="screen"><div class="stage"></div></div>
+
+<div id="s_sent" class="screen"><div class="stage">
+ <div class="stim"><span id="frame"></span> <span class="gap"></span>.</div>
+ <input type="text" id="resp" autocomplete="off" autocorrect="off"
+        spellcheck="false">
+</div></div>
+
+<div id="s_fb" class="screen"><div class="stage">
+ <div class="fb-row">
+  <div><div class="fb-lab">Ihre Antwort</div>
+   <div class="fb-val" id="fb_yours"></div></div>
+  <div><div class="fb-lab">Häufigste Antwort</div>
+   <div class="fb-val" id="fb_target"></div></div>
+ </div>
+ <div class="fb-ok" id="fb_ok"></div>
+ <div class="hint">Enter für den nächsten Durchgang</div>
+</div></div>
+
+<div id="s_done" class="screen">
+ <h1>Vielen Dank</h1>
+ <p>Der Versuch ist beendet. Bitte laden Sie die Datei herunter und geben Sie
+    sie der Versuchsleitung.</p>
+ <button onclick="downloadCSV()">Daten herunterladen</button>
+ <div class="note">Ohne diesen Schritt gehen Ihre Daten verloren.</div>
+</div>
+
+<div class="prog" id="prog"></div>
+</div>
+
+<script src="{% static 'main/experiment.js' %}"></script>
+
+</body>
+
+</html>
