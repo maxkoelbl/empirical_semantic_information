@@ -16,3 +16,4 @@ fpb/static
 
 # Vim
 Session.vim
+*.kate-swp
