@@ -5,10 +5,10 @@ venv
 *.pyc
 
 # Django
-fpb/local.py
-fpb/db.sqlite3
-fpb/media
-fpb/static
+empirical_semantic_information/local.py
+empirical_semantic_information/db.sqlite3
+empirical_semantic_information/media
+empirical_semantic_information/static
 
 # SublimeText
 *.sublime-project
