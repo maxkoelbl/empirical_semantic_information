@@ -14,6 +14,32 @@
 # along with empirical_semantic_information. If not, see <http://www.gnu.org/licenses/>.
 """Django tasks app models module."""
 
+from django.conf import settings
 from django.db import models
+from django.utils.translation import gettext_lazy as _
 
-# Create your models here.
+
+class CompletionTask(models.Model):
+    """Completion task model."""
+
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name=_("Created at"))
+    updated_at = models.DateTimeField(auto_now=True, verbose_name=_("Updated at"))
+
+    language = models.CharField(
+        max_length=10,
+        choices=settings.LANGUAGES,
+        default=settings.LANGUAGE_CODE,
+        verbose_name=_("Language"),
+    )
+
+    question = models.CharField(
+        max_length=1024,
+        verbose_name=_("Question"),
+        help_text=_("Use {} to indicate the gap."),
+    )
+
+    class Meta:
+        """Meta."""
+
+        verbose_name = _("Completion task")
+        verbose_name_plural = _("Completion tasks")

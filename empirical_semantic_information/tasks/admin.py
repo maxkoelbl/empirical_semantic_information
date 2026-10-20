@@ -16,4 +16,12 @@
 
 from django.contrib import admin
 
-# Register your models here.
+from .models import CompletionTask
+
+
+@admin.register(CompletionTask)
+class CompletionTaskAdmin(admin.ModelAdmin):
+    """Completion task admin."""
+
+    list_display = ["question"]
+    list_filter = ["language"]
