@@ -52,6 +52,7 @@ ALLOWED_HOSTS: list[str] = []
 INSTALLED_APPS = [
     "main",
     "participants",
+    "tasks",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
