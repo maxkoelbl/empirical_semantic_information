@@ -15,5 +15,23 @@
 """Django participants app models module."""
 
 from django.db import models
+from django.utils.translation import gettext_lazy as _
 
-# Create your models here.
+
+class Participant(models.Model):
+    """Participant model."""
+
+    class Gender(models.IntegerChoices):
+        """Gender choices."""
+
+        FEMALE = 1, _("Female")
+        MALE = 2, _("Male")
+        DIVERS = 3, _("Divers")
+
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name=_("Created at"))
+    updated_at = models.DateTimeField(auto_now=True, verbose_name=_("Updated at"))
+
+    gender = models.PositiveSmallIntegerField(
+        choices=Gender.choices,
+        verbose_name=_("Gender"),
+    )

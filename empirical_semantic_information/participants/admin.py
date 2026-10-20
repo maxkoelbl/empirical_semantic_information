@@ -16,4 +16,12 @@
 
 from django.contrib import admin
 
-# Register your models here.
+from .models import Participant
+
+
+@admin.register(Participant)
+class ParticipantAdmin(admin.ModelAdmin):
+    """Participant admin."""
+
+    list_display = ["pk", "gender"]
+    list_filter = ["gender"]
