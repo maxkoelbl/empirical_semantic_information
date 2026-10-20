@@ -35,3 +35,9 @@ class Participant(models.Model):
         choices=Gender.choices,
         verbose_name=_("Gender"),
     )
+
+    class Meta:
+        """Meta."""
+
+        verbose_name = _("Participant")
+        verbose_name_plural = _("Participants")

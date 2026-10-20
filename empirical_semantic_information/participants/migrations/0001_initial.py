@@ -54,5 +54,9 @@ class Migration(migrations.Migration):
                     ),
                 ),
             ],
+            options={
+                "verbose_name": "Participant",
+                "verbose_name_plural": "Participants",
+            },
         ),
     ]
