@@ -4,6 +4,6 @@
 #
 #    pip-compile --no-annotate --strip-extras requirements.in
 #
-asgiref==3.12.1
+asgiref==3.13.0
 django==6.1.2
 sqlparse==0.6.0
